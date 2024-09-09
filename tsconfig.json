@@ -24,7 +24,7 @@
       "@app/*": ["src/app/*"],
       "@store/*": ["src/store/*"],
       "@components/*": ["src/shadecn/components/*"],
-      "@utils/*": ["src/utils/*"],
+      "@utils/*": ["src/shadecn/utils/*"],
       "@assets/*": ["src/assets/*"],
       "@hooks": ["src/hooks"],
       "@/*": ["./src/*"]
