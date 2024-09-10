@@ -4,8 +4,8 @@ import { ROUTES } from '@constants/routes';
 import ErrorBoundary from '@/shared/layouts/ErrorBoundary';
 import App from '@/App';
 
-import ContacList from '@/modules/Contact/ContacList';
-import ContacDetails from '@/modules/Contact/_view/ContacDetails';
+import ContacList from '@/modules/ContactList/ContacList';
+import ContacDetails from '@/modules/ContactList/_view/ContacDetails';
 import CreateContact from '@/modules/CreateContact/CreateContact';
 
 const router = createBrowserRouter([

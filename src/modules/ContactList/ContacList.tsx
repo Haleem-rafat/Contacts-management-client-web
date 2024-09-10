@@ -42,12 +42,13 @@ export default function ContacList() {
   });
 
   const filteredContacts = selectedLetter
-    ? contactsDataList.filter(
-        (contact) => contact.name.first.charAt(0).toUpperCase() === selectedLetter
-      )
-    : contactsDataList;
+    ? contactsDataList
+        // add a filter to only show contacts that have an ID because a lot of contacts don't have an ID.
+        .filter((contact) => contact?.id?.value)
+        .filter((contact) => contact.name.first.charAt(0).toUpperCase() === selectedLetter)
+    : contactsDataList.filter((contact) => contact?.id?.value);
 
-  const getButtonClassNames = (letter: string | null) =>
+  const getButtonClassNames = (letter: string) =>
     `rounded-lg border px-3 py-2  ${
       selectedLetter === letter ? 'bg-blue-500 text-white' : 'bg-gray-200'
     }`;
@@ -96,10 +97,10 @@ export default function ContacList() {
                   eMail={contact?.email}
                 />
               ))}
-              {contactIsloading && contactData && <CardContactSkeleton />}
-              {contactIsloading && contactData && <CardContactSkeleton />}
-              {contactIsloading && contactData && <CardContactSkeleton />}
-              {contactIsloading && contactData && <CardContactSkeleton />}
+              {contactIsloading && <CardContactSkeleton />}
+              {contactIsloading && <CardContactSkeleton />}
+              {contactIsloading && <CardContactSkeleton />}
+              {contactIsloading && <CardContactSkeleton />}
             </div>
           </InfiniteScroll>
         </div>

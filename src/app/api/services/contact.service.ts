@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IContact, Result } from '@servicesTypes/contact.types';
+import { IContact } from '@servicesTypes/contact.types';
 import { IPagination } from '@servicesTypes/api.types';
 
 class ContactService {

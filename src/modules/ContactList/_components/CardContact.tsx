@@ -24,6 +24,7 @@ export default function CardContact({
 }: ICardContactProps) {
   const navigate = useNavigate();
 
+  // this function to show an error when a contact does not have an ID.
   const handelNavigate = () => {
     if (contactId) {
       navigate(generatePath(ROUTES.CONTACT_DETAILS, { contactId }));
