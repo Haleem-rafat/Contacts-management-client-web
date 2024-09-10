@@ -28,7 +28,7 @@ The other module is for CRUD operations and search functionality, so it was name
 # Libraries & Technologies Used
  ### - Main Stack
  -  [React + TypeScript + Vite ](https://vitejs.dev/guide/) The core stack used for building the project. To set up the project, run:
-   ```js 
+   ```
   npm create vite@latest
     ```
  ### - Styling 
