@@ -8,8 +8,8 @@ import { LuContact } from 'react-icons/lu';
 import { RiContactsBookLine } from 'react-icons/ri';
 
 const navItems = [
-  { icon: <LuContact size={20} />, label: 'Conatct List', link: ROUTES.CONTACT },
-  { icon: <RiContactsBookLine size={20} />, label: 'Create conatct', link: ROUTES.CREATE_CONTACT },
+  { icon: <LuContact size={20} />, label: 'Contact List', link: ROUTES.CONTACT },
+  { icon: <RiContactsBookLine size={20} />, label: 'Create contact', link: ROUTES.CREATE_CONTACT },
   //  add more nav items to navigate in web app
 ];
 
@@ -27,6 +27,12 @@ export default function AppLayouts({ children }) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const handleOverlayClick = () => {
+    if (window.innerWidth < 768) {
+      setIsOpen(false);
+    }
+  };
   return (
     <>
       <AnimatePresence>
@@ -48,13 +54,13 @@ export default function AppLayouts({ children }) {
                 'flex shrink-0 grow-0 flex-col bg-white shadow',
                 'fixed z-20 h-screen w-64 overflow-hidden px-6 py-3'
               )}>
-              <p className="my-10 text-lg font-bold">Conatct management</p>
+              <p className="my-10 text-lg font-bold">Contact management</p>
               <div className="flex flex-col gap-3">
                 {navItems?.map((item) => (
                   <NavLink
                     to={item.link}
                     key={item.label}
-                    // onClick={() => setIsOpen(false)}
+                    onClick={() => handleOverlayClick()}
                     className={({ isActive }): string =>
                       classNames(
                         'flex w-52 items-center gap-4 overflow-hidden rounded-lg px-6 py-2 text-blue-500',

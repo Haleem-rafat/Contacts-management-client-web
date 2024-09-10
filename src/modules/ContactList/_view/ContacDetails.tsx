@@ -33,7 +33,7 @@ export default function ContacDetails() {
           className="cursor-pointer"
           onClick={() => navigate(ROUTES.CONTACT)}
         />
-        Conatct Details <span className="self-end text-sm">(Story 2)</span>
+        Contact Details <span className="self-end text-sm">(Story 2)</span>
       </p>
       <div className="flex flex-col gap-5 rounded-lg bg-white p-5 shadow">
         <h2 className="under font-semibold">Contact info :</h2>

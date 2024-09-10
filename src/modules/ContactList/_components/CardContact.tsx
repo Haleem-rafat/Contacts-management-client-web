@@ -39,7 +39,7 @@ export default function CardContact({
     <button
       type="button"
       onClick={() => handelNavigate()}
-      className="group min-w-40 rounded-xl bg-white p-5 shadow transition-shadow hover:shadow-xl">
+      className="group min-w-40 overflow-hidden rounded-xl bg-white p-5 shadow transition-shadow hover:shadow-xl">
       <div className="flex flex-col items-center justify-center">
         <MainAvatar src={picture} className="transition-transform group-hover:scale-105" />
         <p className="py-3 font-bold text-slate-900">{name}</p>

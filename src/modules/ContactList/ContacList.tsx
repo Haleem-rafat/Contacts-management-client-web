@@ -19,7 +19,7 @@ export default function ContacList() {
     return contactService
       .getContactList({
         page,
-        results: 200,
+        results: 50,
       })
       .then((data) => data as IContact);
   };
@@ -56,7 +56,7 @@ export default function ContacList() {
   return (
     <>
       <p className="pb-10 text-2xl font-semibold">
-        Conatct List <span className="text-sm">(Story 1)</span>
+        Contact List <span className="text-sm">(Story 1)</span>
       </p>
       <div className="flex gap-4">
         {/* to filter contacts by the selected letter section */}
@@ -84,7 +84,7 @@ export default function ContacList() {
             dataLength={contactsDataList?.length || 0}
             next={contactsHandleLoadMore}
             hasMore={contactsHasMore}
-            loader={<CardContactSkeleton count={4} />}
+            loader={<CardContactSkeleton count={12} />}
             scrollableTarget="scrollableDiv">
             <div className="grid grid-cols-1 gap-8 px-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
               {(filteredContacts as Result[])?.map((contact) => (

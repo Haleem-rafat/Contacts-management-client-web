@@ -86,3 +86,11 @@ export interface Info {
   page: number;
   version: string;
 }
+
+export interface IContactStore {
+  id: string;
+  img: string;
+  userName: string;
+  email: string;
+  phoneNumber: string;
+}
