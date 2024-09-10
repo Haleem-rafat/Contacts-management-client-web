@@ -26,32 +26,32 @@ The other module is for CRUD operations and search functionality, so it was name
 
 
 # Libraries & Technologies Used
- ### - Main Stack
+ ###  Main Stack
  -  [React + TypeScript + Vite ](https://vitejs.dev/guide/) The core stack used for building the project. To set up the project, run: `npm create vite@latest`
- ### - Styling 
+ ###  Styling 
  -  [Tailwind CSS: ](https://tailwindcss.com/): Used for efficient and responsive styling.
  -  [Shadcn UI](https://ui.shadcn.com/): A library built with Tailwind CSS, used for creating the main UI components.
  -  [Framer Motion](https://www.framer.com/motion/ ): Used for animations and enhancing front-end interactivity.
  -  [React Icons:](https://react-icons.github.io/react-icons/ ): Used to integrate icons throughout the front-end.
- ### - Form and Validation
+ ###  Form and Validation
  -  [React hook rotm ](https://www.react-hook-form.com/): Used for creating and managing the contact form, as well as handling form edits.
  -  [Yup](https://github.com/jquense/yup/tree/pre-v1): ntegrated with React Hook Form to provide schema-based validation for the forms.
-  ### -  etching API and Listing Data
+  ###  etching API and Listing Data
  -  [axios ](https://axios-http.com/docs/intro): A library used for making HTTP requests to fetch contact data.
  -  [SWR ](https://swr.vercel.app/): Used for data fetching, handling loading states, errors, and caching API calls with a unique key for each request.
  -  [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component): Helps with implementing pagination while scrolling through the contact list.
  -  [randomuser](https://randomuser.me/): An API used to generate random contact data for the application.
-  ### -  Global State Management
+  ###  Global State Management
  -  [redux toolkit ](https://redux-toolkit.js.org/): Utilized for managing CRUD operations in Story 3 of the task.
-  ### -  Code Formatting
+  ###  Code Formatting
  -  [eslint](https://vercel.com/ ): Used to maintain code quality and ensure consistent formatting across the project.
  -  [prettier](https://vercel.com/ ): A code formatter used to automatically clean up and style the code.
- ### -  Deployment
+ ###   Deployment
  -  [vercel.app ](https://vercel.com/ ): The platform used to deploy the project live on the web.
 
 
-# Some issue in  `https://randomuser.me/`  and how am resolved 
-###  - first 
+## Some issue in  `https://randomuser.me/`  and how am resolved 
+###  First 
 - While using the `https://randomuser.me/` API, I noticed the response lacked a total count of available data, which made implementing infinite scroll difficult. The `info` section of the response looked like this:
 ``` jason
  "info": {
@@ -61,9 +61,9 @@ The other module is for CRUD operations and search functionality, so it was name
     "version": "1.4"
   }
 ```
-- `Solution`:
+## `Solution`:
 To handle this, I used `react-infinite-scroll-component`. It allows data to be loaded as the user scrolls without needing a total count. Pagination from the API (`page` field) helps request the next set of data, ensuring smooth scrolling and performance.
-###  - second 
+###  Second 
 In many cases, the `ID`field for a contact is missing in the API response from` https://randomuser.me/`. A typical response might look like this:
 ``` jason
 "id": {
@@ -72,9 +72,8 @@ In many cases, the `ID`field for a contact is missing in the API response from` 
       }, 
 ```
 However, some contacts may not have an ID, which leads to a bad user experience when trying to view the details of that contact.
-
-- `Solution`::
-  - I implemented a workaround by first checking if the contact has an ID before navigating to the details page. If not, an error message is shown using a toast notification
+## `Solution`:
+ - I implemented a workaround by first checking if the contact has an ID before navigating to the details page. If not, an error message is shown using a toast notification
 ``` js
 const handelNavigate = () => {
   if (contactId) {
