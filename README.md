@@ -139,7 +139,7 @@ this app responsive on any screen pc - labtop - tablet  - phone
 |   |   |    └── CreateContact.tsx
 │   ├── shadecn
 │   │   ├── components
-│   │   │   └── ui // all shadecn UI used
+│   │   │   └── ui // All shadecn UI used
 │   │   └── lib
 │   └── shared
 │   |    ├── layouts
