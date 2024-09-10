@@ -27,10 +27,7 @@ The other module is for CRUD operations and search functionality, so it was name
 
 # Libraries & Technologies Used
  ### - Main Stack
- -  [React + TypeScript + Vite ](https://vitejs.dev/guide/) The core stack used for building the project. To set up the project, run:
-   ```
-  npm create vite@latest
-    ```
+ -  [React + TypeScript + Vite ](https://vitejs.dev/guide/) The core stack used for building the project. To set up the project, run: `npm create vite@latest`
  ### - Styling 
  -  [Tailwind CSS: ](https://tailwindcss.com/): Used for efficient and responsive styling.
  -  [Shadcn UI](https://ui.shadcn.com/): A library built with Tailwind CSS, used for creating the main UI components.
