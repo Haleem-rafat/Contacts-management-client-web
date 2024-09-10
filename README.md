@@ -51,8 +51,8 @@ The other module is for CRUD operations and search functionality, so it was name
 
 
 ## Some issue in  `https://randomuser.me/`  and how am resolved 
-###  First 
-- While using the `https://randomuser.me/` API, I noticed the response lacked a total count of available data, which made implementing infinite scroll difficult. The `info` section of the response looked like this:
+##  First 
+While using the `https://randomuser.me/` API, I noticed the response lacked a total count of available data, which made implementing infinite scroll difficult. The `info` section of the response looked like this:
 ``` jason
  "info": {
     "seed": "56d27f4a53bd5441",
@@ -61,9 +61,9 @@ The other module is for CRUD operations and search functionality, so it was name
     "version": "1.4"
   }
 ```
-## `Solution`:
+### `Solution`:
 To handle this, I used `react-infinite-scroll-component`. It allows data to be loaded as the user scrolls without needing a total count. Pagination from the API (`page` field) helps request the next set of data, ensuring smooth scrolling and performance.
-###  Second 
+##  Second 
 In many cases, the `ID`field for a contact is missing in the API response from` https://randomuser.me/`. A typical response might look like this:
 ``` jason
 "id": {
@@ -72,8 +72,8 @@ In many cases, the `ID`field for a contact is missing in the API response from` 
       }, 
 ```
 However, some contacts may not have an ID, which leads to a bad user experience when trying to view the details of that contact.
-## `Solution`:
- - I implemented a workaround by first checking if the contact has an ID before navigating to the details page. If not, an error message is shown using a toast notification
+### `Solution`:
+I implemented a workaround by first checking if the contact has an ID before navigating to the details page. If not, an error message is shown using a toast notification
 ``` js
 const handelNavigate = () => {
   if (contactId) {
@@ -83,7 +83,7 @@ const handelNavigate = () => {
   }
 };
 ```
-  - Additionally, I filtered out any contacts without an ID from being displayed to avoid confusion:
+Additionally, I filtered out any contacts without an ID from being displayed to avoid confusion:
 
 ``` js
 const filteredContacts = selectedLetter
@@ -92,7 +92,7 @@ const filteredContacts = selectedLetter
       .filter((contact) => contact.name.first.charAt(0).toUpperCase() === selectedLetter)
   : contactsDataList.filter((contact) => contact?.id?.value);
 ```
-  - This ensures that only contacts with valid IDs are shown, improving the user experience.
+This ensures that only contacts with valid IDs are shown, improving the user experience.
 
 
 # suppurt devises 
