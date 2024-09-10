@@ -28,7 +28,7 @@ export default function ContacList() {
     data: contactData,
     isLoading: contactIsloading,
     mutate: contactMutate,
-  } = useSWR(['get-contact-list', page], fetchContact);
+  } = useSWR(['get-contact-list', page, selectedLetter], fetchContact);
 
   const {
     hasMore: contactsHasMore,
@@ -46,10 +46,6 @@ export default function ContacList() {
         (contact) => contact.name.first.charAt(0).toUpperCase() === selectedLetter
       )
     : contactsDataList;
-
-  useEffect(() => {
-    contactMutate();
-  }, [selectedLetter]);
 
   const getButtonClassNames = (letter: string | null) =>
     `rounded-lg border px-3 py-2  ${
