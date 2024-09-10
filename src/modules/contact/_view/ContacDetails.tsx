@@ -1,12 +1,14 @@
-import contactService from '@services/contact.service';
-import { IContact } from '@servicesTypes/contact.types';
 import { useNavigate, useParams } from 'react-router-dom';
-import useSWR from 'swr';
-import MainAvatar from '@UI/avatars/MainAvatar';
 import { FaPhoneAlt, FaUser } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { ImLocation } from 'react-icons/im';
 import { IoArrowBackCircleOutline } from 'react-icons/io5';
+
+import contactService from '@services/contact.service';
+import { IContact } from '@servicesTypes/contact.types';
+
+import useSWR from 'swr';
+import MainAvatar from '@UI/avatars/MainAvatar';
 import { ROUTES } from '@constants/routes';
 import ContacDetailsSkeletion from '../_components/ContacDetailsSkeletion';
 

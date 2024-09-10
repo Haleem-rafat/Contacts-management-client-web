@@ -5,8 +5,8 @@ import contactService from '@services/contact.service';
 import { IContact, Result } from '@servicesTypes/contact.types';
 
 import InfiniteScroll from 'react-infinite-scroll-component';
-import CardContact from './_components/CardContact';
 import CardContactSkeleton from './_components/CardContactSkeleton';
+import CardContact from './_components/CardContact';
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
