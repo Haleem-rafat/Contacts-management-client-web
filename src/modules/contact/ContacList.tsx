@@ -49,7 +49,7 @@ export default function ContacList() {
 
   useEffect(() => {
     contactMutate();
-  }, [selectedLetter, contactMutate]);
+  }, [selectedLetter]);
 
   const getButtonClassNames = (letter: string | null) =>
     `rounded-lg border px-3 py-2  ${
