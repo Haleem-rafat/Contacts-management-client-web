@@ -55,7 +55,7 @@ export default function ContacList() {
   return (
     <div className="flex gap-1">
       {/* to filter contacts by the selected letter section */}
-      <div className="flex h-[calc(100vh-150px)] flex-col gap-4 overflow-y-scroll">
+      <div className="scrollbar-hide flex h-[calc(100vh-150px)] flex-col gap-4 overflow-y-scroll">
         <button
           type="button"
           onClick={() => setSelectedLetter(null)}
@@ -74,7 +74,7 @@ export default function ContacList() {
       </div>
 
       {/*  infinite scroll list contact with skeleton  */}
-      <div id="scrollableDiv" className="h-[calc(100vh-150px)] overflow-auto">
+      <div id="scrollableDiv" className="scrollbar-hide h-[calc(100vh-150px)] overflow-auto">
         <InfiniteScroll
           dataLength={contactsDataList?.length || 0}
           next={contactsHandleLoadMore}
