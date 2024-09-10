@@ -3,10 +3,12 @@ import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { SWRConfig } from 'swr';
+import { ToastContainer } from 'react-toastify';
 
 import store from '@store/store';
 import router from '@app/router';
 
+import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
@@ -25,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
       <Provider store={store}>
         <RouterProvider router={router} />
       </Provider>
+      <ToastContainer />
     </SWRConfig>
   </StrictMode>
 );

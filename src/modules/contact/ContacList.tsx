@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import useSWR from 'swr';
 import contactService from '@services/contact.service';
@@ -53,51 +53,57 @@ export default function ContacList() {
     }`;
 
   return (
-    <div className="flex gap-1">
-      {/* to filter contacts by the selected letter section */}
-      <div className="scrollbar-hide flex h-[calc(100vh-150px)] flex-col gap-4 overflow-y-scroll">
-        <button
-          type="button"
-          onClick={() => setSelectedLetter(null)}
-          className={getButtonClassNames(null)}>
-          All
-        </button>
-        {ALPHABET.map((letter) => (
+    <>
+      <p className="pb-10 text-2xl font-semibold">
+        Conatct List <span className="text-sm">(Story 1)</span>
+      </p>
+      <div className="flex gap-4">
+        {/* to filter contacts by the selected letter section */}
+        <div className="flex h-[calc(100vh-150px)] flex-col gap-4 overflow-y-scroll scrollbar-hide">
           <button
-            key={letter}
             type="button"
-            onClick={() => setSelectedLetter(letter)}
-            className={getButtonClassNames(letter)}>
-            {letter}
+            onClick={() => setSelectedLetter(null)}
+            className={getButtonClassNames(null)}>
+            All
           </button>
-        ))}
-      </div>
+          {ALPHABET.map((letter) => (
+            <button
+              key={letter}
+              type="button"
+              onClick={() => setSelectedLetter(letter)}
+              className={getButtonClassNames(letter)}>
+              {letter}
+            </button>
+          ))}
+        </div>
 
-      {/*  infinite scroll list contact with skeleton  */}
-      <div id="scrollableDiv" className="scrollbar-hide h-[calc(100vh-150px)] overflow-auto">
-        <InfiniteScroll
-          dataLength={contactsDataList?.length || 0}
-          next={contactsHandleLoadMore}
-          hasMore={contactsHasMore}
-          loader={<CardContactSkeleton count={4} />}
-          scrollableTarget="scrollableDiv">
-          <div className="grid grid-cols-1 gap-8 px-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-            {(filteredContacts as Result[])?.map((contact) => (
-              <CardContact
-                key={contact?.id.value}
-                picture={contact?.picture.large}
-                name={contact?.name.first + ' ' + contact?.name.last}
-                phoneNumber={contact?.phone}
-                eMail={contact?.email}
-              />
-            ))}
-            {contactIsloading && <CardContactSkeleton />}
-            {contactIsloading && <CardContactSkeleton />}
-            {contactIsloading && <CardContactSkeleton />}
-            {contactIsloading && <CardContactSkeleton />}
-          </div>
-        </InfiniteScroll>
+        {/*  infinite scroll list contact with skeleton  */}
+        <div id="scrollableDiv" className="h-[calc(100vh-150px)] overflow-auto scrollbar-hide">
+          <InfiniteScroll
+            dataLength={contactsDataList?.length || 0}
+            next={contactsHandleLoadMore}
+            hasMore={contactsHasMore}
+            loader={<CardContactSkeleton count={4} />}
+            scrollableTarget="scrollableDiv">
+            <div className="grid grid-cols-1 gap-8 px-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+              {(filteredContacts as Result[])?.map((contact) => (
+                <CardContact
+                  key={contact?.id.value}
+                  contactId={contact?.id.value}
+                  picture={contact?.picture.large}
+                  name={contact?.name.first + ' ' + contact?.name.last}
+                  phoneNumber={contact?.phone}
+                  eMail={contact?.email}
+                />
+              ))}
+              {contactIsloading && contactData && <CardContactSkeleton />}
+              {contactIsloading && contactData && <CardContactSkeleton />}
+              {contactIsloading && contactData && <CardContactSkeleton />}
+              {contactIsloading && contactData && <CardContactSkeleton />}
+            </div>
+          </InfiniteScroll>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

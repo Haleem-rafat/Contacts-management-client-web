@@ -1,18 +1,44 @@
-import { truncateString } from '@app/utils/truncateString';
-import MainAvatar from '@UI/avatars/MainAvatar';
+import { generatePath, useNavigate } from 'react-router-dom';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 
+import { truncateString } from '@app/utils/truncateString';
+import { ROUTES } from '@constants/routes';
+import MainAvatar from '@UI/avatars/MainAvatar';
+import { toast } from 'react-toastify';
+
 interface ICardContactProps {
+  contactId: string;
   picture: string;
   name: string;
   phoneNumber: string;
   eMail: string;
 }
 
-export default function CardContact({ picture, name, phoneNumber, eMail }: ICardContactProps) {
+export default function CardContact({
+  contactId,
+  picture,
+  name,
+  phoneNumber,
+  eMail,
+}: ICardContactProps) {
+  const navigate = useNavigate();
+
+  const handelNavigate = () => {
+    if (contactId) {
+      navigate(generatePath(ROUTES.CONTACT_DETAILS, { contactId }));
+    } else {
+      toast.error(
+        'Ops, this contact not have an ID to go details page can try another contact card'
+      );
+    }
+  };
+
   return (
-    <div className="group min-w-40 rounded-xl bg-white p-5 shadow transition-shadow hover:shadow-xl">
+    <button
+      type="button"
+      onClick={() => handelNavigate()}
+      className="group min-w-40 rounded-xl bg-white p-5 shadow transition-shadow hover:shadow-xl">
       <div className="flex flex-col items-center justify-center">
         <MainAvatar src={picture} className="transition-transform group-hover:scale-105" />
         <p className="py-3 font-bold text-slate-900">{name}</p>
@@ -33,6 +59,6 @@ export default function CardContact({ picture, name, phoneNumber, eMail }: ICard
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 }

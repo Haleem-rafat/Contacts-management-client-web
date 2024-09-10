@@ -5,6 +5,7 @@ interface IProps {
   src: string;
   name?: string;
   className?: string;
+  size?: 'md' | 'lg';
 }
 
 const getFirstLetters = (text?: string): string => {
@@ -18,10 +19,16 @@ const getFirstLetters = (text?: string): string => {
 export default function MainAvatar({
   src = null,
   name = 'C',
+  size = 'md',
   className,
 }: Readonly<IProps>): React.ReactElement {
   return (
-    <Avatar className={cn('h-20 w-20 rounded-lg', className)}>
+    <Avatar
+      className={cn(
+        'rounded-lg',
+        { 'h-20 w-20': size === 'md', 'h-32 w-32': size === 'lg' },
+        className
+      )}>
       <AvatarImage src={src} className="z-10 rounded-lg object-cover" />
       <AvatarFallback className="h-20 w-20 rounded-lg text-sm font-semibold text-slate-700">
         {getFirstLetters(name)}
