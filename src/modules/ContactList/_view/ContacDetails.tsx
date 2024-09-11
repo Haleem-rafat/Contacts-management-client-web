@@ -37,7 +37,7 @@ export default function ContacDetails() {
       </p>
       <div className="flex flex-col gap-5 rounded-lg bg-white p-5 shadow">
         <h2 className="under font-semibold">Contact info :</h2>
-        <div className="flex gap-5">
+        <div className="flex flex-wrap gap-5">
           <div>
             <MainAvatar
               size="lg"
