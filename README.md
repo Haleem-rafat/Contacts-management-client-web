@@ -1,4 +1,4 @@
-# Contacts management small web application task
+Contacts management small web application task
 It is a description sent to me from [Axis](https://axisapp.com/) Company. It concerns organizing and facilitating the display of contacts, as outlined in the requirements. The first and second stories relate to displaying and filtering contacts based on the first letter of the Latin alphabet and viewing details of individual contacts.
 The third story involves CRUD operations and search functionality using Redux Toolkit. Therefore, I divided the work file into modules to align with the requirements.
 One module is dedicated to contacts, which comes through the API endpoints for contacts management and displays detailed information with filtering based on Latin letters. It also allows navigation to individual contact details, all within a single module named `ContactList`.
@@ -7,7 +7,7 @@ The other module is for CRUD operations and search functionality, so it was name
 
 # Install & Run
   - You can view it live as it is already uploaded on vercel.
-     - The link is: [[provide_link_here](https://contacts-management-client-web.vercel.app/)].
+     - The link is: [[Contact app](https://contacts-management-client-web.vercel.app/)].
   - In the case of running it locally, the process is as follows:
      - npm i
      - npm run dev 
@@ -95,8 +95,8 @@ const filteredContacts = selectedLetter
 This ensures that only contacts with valid IDs are shown, improving the user experience.
 
 
-# suppurt devises 
-this app responsive on any screen pc - labtop - tablet  - phone
+# Supported Devices
+this app is responsive on any screen pc, laptop, tablet, and mobile phones
 
 
 # Files structure
